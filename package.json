@@ -1,0 +1,38 @@
+{
+  "name": "@oncomouse/custom-ramda",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "update-ramda": "git clone https://github.com/ramda/ramda git-ramda; cp -r git-ramda/source .; cp git-ramda/rollup.config.js ./rollup.config.js; sed -e 's/\\.\\./\\./' git-ramda/scripts/partialBuild.js > index.js; rm -rf git-ramda"
+  },
+  "bin": {
+    "custom-ramda": "./cli.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.7.4",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.4.0",
+    "rollup": "^0.68.2",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-uglify": "^6.0.2"
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "env": {
+      "browser": true,
+      "commonjs": true,
+      "es6": true,
+      "jest": true,
+      "node": true
+    },
+    "parser": "babel-eslint",
+    "rules": {
+      "no-unused-vars": "warn"
+    }
+  }
+}
